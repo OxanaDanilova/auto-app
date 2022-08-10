@@ -2,10 +2,13 @@
   "name": "auto-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://oxanadanilova11.github.io/auto-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^4.0.0",
+    "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -15,7 +18,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf build",
+    "publish": "gh-pages -d build",
+    "depoly": "run-s clean build publish"
   },
   "eslintConfig": {
     "extends": [
