@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "clean": "rm -rf build",
     "publish": "gh-pages -d build",
-    "depoly": "run-s clean build publish"
+    "deploy": "run-s clean build publish"
   },
   "eslintConfig": {
     "extends": [
