@@ -22,6 +22,7 @@ const reducer = (state, action) => {
         state = {
           ...state,
           tempo: state.tempo + 5,
+          animationTime: state.animationTime - 100,
         };
       }
 
@@ -31,12 +32,13 @@ const reducer = (state, action) => {
         state = {
           ...state,
           tempo: state.tempo - 5,
+          animationTime: state.animationTime + 100,
         };
       }
 
       break;
     default:
-      console.log("Unbekante Operation");
+      console.log("Ups... Unbekante Operation");
       break;
   }
   return state;
@@ -45,21 +47,35 @@ function App() {
   const initialState = {
     gestartet: false,
     tempo: 0,
+    animationTime: 3000,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div className="App">
-      <div>Auto</div>
-      <p>{state.gestartet ? "Gestartet" : "Steht"}</p>
+      <h1>Auto</h1>
+      <p>{state.gestartet ? "Brumm Brumm" : "Steht"}</p>
       <p>Tempo: {state.tempo}</p>
-      <button onClick={() => dispatch({ type: "Anschalten" })}>
-        Anschalten
-      </button>
-      <button onClick={() => dispatch({ type: "Ausschalten" })}>
-        Ausschalten
-      </button>
+      {state.gestartet ? (
+        <button onClick={() => dispatch({ type: "Ausschalten" })}>Stop</button>
+      ) : (
+        <button onClick={() => dispatch({ type: "Anschalten" })}>Start</button>
+      )}
+
       <button onClick={() => dispatch({ type: "Gas geben" })}>Gas geben</button>
       <button onClick={() => dispatch({ type: "Bremsen" })}>Bremsen</button>
+      <div className="road">
+        <div
+          className="auto-icon"
+          style={
+            state.gestartet
+              ? { animation: `go ${state.animationTime}ms linear` }
+              : { color: "black" }
+          }
+        >
+          <i className="fa-solid fa-car-side"></i>
+        </div>
+      </div>
     </div>
   );
 }

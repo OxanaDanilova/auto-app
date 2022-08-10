@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  padding: 10px;
+  cursor: pointer;
+  color: darkblue;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.road {
+  height: 60px;
+  width: 100vw;
+  position: relative;
+  background-color: grey;
+  margin-top: 2rem;
+}
+
+.auto-icon {
+  font-size: 40px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  color: brown;
+}
+
+.runAuto {
+  animation: go 20s ease-in;
+}
+
+@keyframes go {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
