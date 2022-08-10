@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <h1>Auto</h1>
-      <p>{state.gestartet ? "Brumm Brumm" : "Steht"}</p>
+      <p>Status: {state.gestartet ? "Brumm Brumm" : "Stop"}</p>
       <p>Tempo: {state.tempo}</p>
       {state.gestartet ? (
         <button onClick={() => dispatch({ type: "Ausschalten" })}>Stop</button>
