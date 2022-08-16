@@ -69,7 +69,9 @@ function App() {
           className="auto-icon"
           style={
             state.gestartet
-              ? { animation: `go ${state.animationTime}ms linear` }
+              ? {
+                  animation: `go ${state.animationTime}ms linear forwards infinite`,
+                }
               : { color: "black" }
           }
         >
